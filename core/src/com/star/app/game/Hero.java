@@ -52,6 +52,14 @@ public class Hero {
         return position;
     }
 
+    public Weapon getCurrentWeapon() {
+        return currentWeapon;
+    }
+
+    public void setHp(int hp) {
+        this.hp += hp;
+    }
+
     public Hero(GameController gc) {
         this.gc = gc;
         this.texture = Assets.getInstance().getAtlas().findRegion("ship");

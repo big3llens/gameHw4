@@ -3,30 +3,58 @@ images1.png
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-asteroid
+1111
   rotate: false
   xy: 2, 2
+  size: 266, 265
+  orig: 266, 265
+  offset: 0, 0
+  index: -1
+asteroid
+  rotate: false
+  xy: 2, 269
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
+bullets
+  rotate: false
+  xy: 270, 2
+  size: 178, 153
+  orig: 178, 153
+  offset: 0, 0
+  index: -1
+heal
+  rotate: false
+  xy: 270, 157
+  size: 114, 87
+  orig: 114, 87
+  offset: 0, 0
+  index: -1
 ship
   rotate: false
-  xy: 260, 2
+  xy: 386, 157
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+heal2
+  rotate: false
+  xy: 260, 269
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 bullet
   rotate: false
-  xy: 326, 2
+  xy: 450, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 star16
   rotate: false
-  xy: 326, 36
+  xy: 484, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

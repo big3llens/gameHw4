@@ -61,6 +61,9 @@ public class Asteroid implements Poolable {
     }
 
     public void deactivate() {
+        short i = (short) MathUtils.random(1, 100);
+        if(i <= 10) gc.getFakc().setup(position.x, position.y);
+        if (i > 10 && i <= 14) gc.getAc().setup(position.x, position.y);
         active = false;
     }
 
