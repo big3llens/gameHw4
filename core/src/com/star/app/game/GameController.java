@@ -9,8 +9,10 @@ public class GameController {
     private AsteroidController asteroidController;
     private BulletController bulletController;
     private ParticleController particleController;
+    private FirstAidKitController fakc;
     private Hero hero;
     private Vector2 tmpVec;
+    private AmmunitionController ac;
 
     public AsteroidController getAsteroidController() {
         return asteroidController;
@@ -22,6 +24,14 @@ public class GameController {
 
     public ParticleController getParticleController() {
         return particleController;
+    }
+
+    public FirstAidKitController getFakc() {
+        return fakc;
+    }
+
+    public AmmunitionController getAc() {
+        return ac;
     }
 
     public Hero getHero() {
@@ -44,6 +54,8 @@ public class GameController {
                     MathUtils.random(0, ScreenManager.SCREEN_HEIGHT),
                     MathUtils.random(-200, 200), MathUtils.random(-200, 200), 1.0f);
         }
+        this.fakc = new FirstAidKitController(this);
+        this.ac = new AmmunitionController(this);
     }
 
     public void update(float dt) {
@@ -52,6 +64,8 @@ public class GameController {
         asteroidController.update(dt);
         bulletController.update(dt);
         particleController.update(dt);
+        fakc.update(dt);
+        ac.update(dt);
         checkCollisions();
     }
 
@@ -102,6 +116,22 @@ public class GameController {
                     }
                     break;
                 }
+            }
+        }
+
+        for (int i = 0; i < fakc.getActiveList().size(); i++) {
+            FirstAidKit f = fakc.getActiveList().get(i);
+            if(f.getHitArea().contains(hero.getPosition())){
+                hero.setHp(10);
+                f.deactivate();
+            }
+        }
+
+        for (int i = 0; i < ac.getActiveList().size(); i++) {
+            Ammunition a = ac.getActiveList().get(i);
+            if(a.getHitArea().contains(hero.getPosition())){
+                hero.getCurrentWeapon().addAmmunition(100);
+                a.deactivate();
             }
         }
     }
